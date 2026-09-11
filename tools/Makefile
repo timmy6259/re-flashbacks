@@ -41,10 +41,14 @@ skyconv_SOURCES := skyconv.c sm64tools/n64graphics.c sm64tools/utils.c
 
 armips: CC := $(CXX)
 armips_SOURCES := armips.cpp
-armips_CFLAGS  := -std=c++11 -fno-exceptions -fno-rtti -pipe
+armips_CFLAGS  := -std=gnu++11 -fno-exceptions -fno-rtti -pipe
 armips_LDFLAGS := -pthread
 ifeq ($(HOST_ENV),MinGW)
   armips_LDFLAGS += -municode
+endif
+
+ifeq ($(shell uname -s),Linux)
+  BUILD_PROGRAMS += flips
 endif
 
 flips: CC := $(CXX)
