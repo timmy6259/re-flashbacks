@@ -1218,7 +1218,6 @@ u32 interact_bully(struct MarioState *m, UNUSED u32 interactType, struct Object 
     else if (!sInvulnerable && !(m->flags & MARIO_VANISH_CAP)
              && !(o->oInteractionSubtype & INT_SUBTYPE_DELAY_INVINCIBILITY)) {
         o->oInteractStatus = INT_STATUS_INTERACTED;
-        m->invincTimer = 2;
 
         update_mario_sound_and_camera(m);
         play_sound(SOUND_MARIO_EEUH, m->marioObj->header.gfx.cameraToObject);
