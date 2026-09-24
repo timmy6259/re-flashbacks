@@ -316,9 +316,7 @@ void render_hud_keys(void) {
  * Render "Timed Demo Timer"
  */
 
-#define TIMER_TIME 360
-
-u32 HudDemoTimer = TIMER_TIME;
+u32 HudDemoTimer = 360;
 
 void render_hud_demo_timer(void) {
     u32 total;
@@ -331,7 +329,7 @@ void render_hud_demo_timer(void) {
 
     if (HudDemoTimer == 0) {
         fade_into_special_warp(-2, 1);
-        u32 HudDemoTimer = TIMER_TIME;
+        u32 HudDemoTimer = 360;
     }
 
     total = HudDemoTimer / 30U;
