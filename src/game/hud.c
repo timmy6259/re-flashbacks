@@ -316,25 +316,23 @@ void render_hud_keys(void) {
  * Render "Timed Demo Timer"
  */
 
-s32 HudDemoTimer = 9000; 
+s32 HudDemoTimer = 9000;
 
 void render_hud_demo_timer(void) {
+    u32 total;
+    u32 minute;
+    u32 second;
 
-    if (HudDemoTimer = 9000 > 0) {
-        HudDemoTimer = 9000--;
-        
-        if (HudDemoTimer = 9000 == 0) {
-        }
+    if (HudDemoTimer > 0) {
+        HudDemoTimer--;
     }
 
+    total = (u32)HudDemoTimer / 30U;
+    minute = total / 60U;
+    second = total % 60U;
 
-    u32 Total = HudDemoTimer / 30;
-    u32 Minute = Total / 60;
-    u32 Second = Total % 60;
-
-    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(99), 185 - 165, "%02d", Minute);
-    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(69), 185 - 165, "%02d", Second);
-
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(99), 185 - 165, "%02d", minute);
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(69), 185 - 165, "%02d", second);
 }
 
 
