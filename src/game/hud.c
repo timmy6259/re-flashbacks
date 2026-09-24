@@ -313,6 +313,32 @@ void render_hud_keys(void) {
 }
 
 /**
+ * Render "Timed Demo Timer"
+ */
+
+s32 HudDemoTimer = 9000; 
+
+void render_hud_demo_timer(void) {
+
+    if (HudDemoTimer = 9000 > 0) {
+        HudDemoTimer = 9000--;
+        
+        if (HudDemoTimer = 9000 == 0) {
+        }
+    }
+
+
+    u32 Total = HudDemoTimer / 30;
+    u32 Minute = Total / 60;
+    u32 Second = Total % 60;
+
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(99), 185 - 165, "%02d", Minute);
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(69), 185 - 165, "%02d", Second);
+
+}
+
+
+/**
  * Renders the timer when Mario start sliding in PSS.
  */
 void render_hud_timer(void) {
@@ -345,6 +371,7 @@ void render_hud(void) {
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_LIVES) {
             render_hud_mario_lives();
+render_hud_demo_timer();
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT) {
