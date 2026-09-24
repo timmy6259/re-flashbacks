@@ -316,8 +316,9 @@ void render_hud_keys(void) {
  * Render "Timed Demo Timer"
  */
 
-u32 HudDemoTimer = 360;
-static u8 sHudDemoTimerExpired = 0;
+#define TIMER_TIME 360
+
+u32 HudDemoTimer = TIMER_LEFT;
 
 void render_hud_demo_timer(void) {
     u32 total;
@@ -329,21 +330,17 @@ void render_hud_demo_timer(void) {
     }
 
     if (HudDemoTimer == 0) {
-        if (sHudDemoTimerExpired == 0) {
-            sHudDemoTimerExpired = 1;
-            fade_into_special_warp(-2, 1);
-        }
-
-        return;
+        fade_into_special_warp(-2, 1);
+        u32 HudDemoTimer = TIMER_LEFT;
     }
 
     total = HudDemoTimer / 30U;
     minute = total / 60U;
     second = total % 60U;
 
-    print_text(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(209), 4, "DEMO LEFT");
-    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(89), 4, "%02d", minute);
-    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(59), 4, "%02d", second);
+    print_text(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(199), 4, "DEMO LEFT");
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(79), 4, "%02d", minute);
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(49), 4, "%02d", second);
 }
 
 /**
