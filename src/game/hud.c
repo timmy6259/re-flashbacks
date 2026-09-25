@@ -338,9 +338,9 @@ void render_hud_demo_timer(void) {
     minute = total / 60U;
     second = total % 60U;
 
-    print_text(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(19), 9, "DEMO LEFT");
-    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(29), 4, "%02d", minute);
-    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(39), 4, "%02d", second);
+    print_text(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(219), 20, "DEMO LEFT");
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(209), 4, "%02d", minute);
+    print_text_fmt_int(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(199), 4, "%02d", second);
 }
 
 /**
